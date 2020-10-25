@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MVRT Side Project : Aryan</title>
+
+    <style>
+        h1
+        {
+            color: green;
+            text-align: left;
+        }
+        #Documents h1
+        {
+            color : blue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src = "https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js">
+        const firebase = require("firebase");
+        require("firebase/firestore");
+    </script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = 
+        {
+            apiKey: "AIzaSyC9MzRckhT5lWCz_0SYjWoPBWtYGZ-e1Jw",
+            authDomain: "mvrt-side-project.firebaseapp.com",
+            databaseURL: "https://mvrt-side-project.firebaseio.com",
+            projectId: "mvrt-side-project",
+            storageBucket: "mvrt-side-project.appspot.com",
+            messagingSenderId: "57986287092",
+            appId: "1:57986287092:web:4186c6b5f96050ab83a5a1"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        var db = firebase.firestore();
+        
+        db.collection("data").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) 
+        {
+            var docTitle = document.createElement("h1");
+            docTitle.textContent = doc.id;
+            Documents.appendChild(docTitle);
+        });
+        });
+
+
+    </script>
+
+    <div id = "Title">
+        <h1>These are the documents in the firebase:</h1>
+    </div>
+
+    <div id = "Documents"></div>
+
+</body>
+
+</html>
