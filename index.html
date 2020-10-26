@@ -51,10 +51,12 @@
         var db = firebase.firestore();
         
         db.collection("data").get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) 
+        querySnapshot.forEach(async function(doc)
         {
             var docTitle = document.createElement("h1");
             docTitle.textContent = doc.id;
+            var data = await doc.get();
+            console.log(data);
             Documents.appendChild(docTitle);
         });
         });
