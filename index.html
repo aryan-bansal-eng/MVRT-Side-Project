@@ -17,6 +17,11 @@
             color : blue;
             text-align: center;
         }
+        #Documents h2
+        {
+            color : red;
+            text-align : center;
+        }
     </style>
 </head>
 
@@ -55,9 +60,15 @@
         {
             var docTitle = document.createElement("h1");
             docTitle.textContent = doc.id;
-            var data = await doc.data();
-            console.log(JSON.stringify(data));
+            
+            var fields = await doc.data();
+            //For printing to console
+            //console.log(JSON.stringify(fields));
+            var docFields = document.createElement("h2");
+            docFields.textContent = "\t" + JSON.stringify(fields);
+
             Documents.appendChild(docTitle);
+            Documents.appendChild(docFields);
         });
         });
 
