@@ -55,7 +55,7 @@
         {
             var docTitle = document.createElement("h1");
             docTitle.textContent = doc.id;
-            var data = await doc.get();
+            var data = await doc.data();
             console.log(JSON.stringify(data));
             Documents.appendChild(docTitle);
         });
